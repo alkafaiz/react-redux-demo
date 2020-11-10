@@ -3,6 +3,10 @@ import PostCard from "./postCard";
 import { Flex, CircularProgress } from "@chakra-ui/core";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import {
+  selectPostsByUserId,
+  selectPosts
+} from "../features/posts/posts.selector";
 
 function PostCards({ isFetching, posts }) {
   if (isFetching) return <CircularProgress isIndeterminate></CircularProgress>;
@@ -28,9 +32,7 @@ PostCards.propTypes = {
 
 const mapStateToProps = (state, { userId }) => ({
   isFetching: state.posts.isFetching,
-  posts: userId
-    ? state.posts.posts.filter(post => post.userId === userId)
-    : state.posts.posts
+  posts: userId ? selectPostsByUserId(state, { userId }) : selectPosts(state)
 });
 
 export default connect(mapStateToProps)(PostCards);

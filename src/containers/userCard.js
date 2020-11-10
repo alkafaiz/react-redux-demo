@@ -2,6 +2,7 @@ import React from "react";
 import UserCardComponent from "../components/userCard";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { selectPostCountByUserId } from "../features/posts/posts.selector";
 
 function UserCard({ id, name, email, city, website, postCount }) {
   return (
@@ -25,7 +26,7 @@ UserCard.propTypes = {
 };
 
 const mapStateToProps = (state, { id }) => ({
-  postCount: state.posts.posts.filter(post => post.userId === id).length
+  postCount: selectPostCountByUserId(state, { userId: id })
 });
 
 export default connect(mapStateToProps)(UserCard);

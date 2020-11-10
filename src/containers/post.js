@@ -6,6 +6,7 @@ import Article from "../components/article";
 import Comment from "../components/comment";
 import { Heading, Stack } from "@chakra-ui/core";
 import AuthorCard from "../containers/authorCard";
+import { selectPostById } from "../features/posts/posts.selector";
 
 function Post({ post, isFetching }) {
   useEffect(() => {
@@ -42,7 +43,7 @@ Post.propTypes = {
 };
 
 const mapStateToProps = (state, { id }) => ({
-  post: state.posts.posts.find(post => post.id === id),
+  post: selectPostById(state, { id }),
   isFetching: state.posts.isFetching
 });
 

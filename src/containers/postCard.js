@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import PostCardComponent from "../components/postCard";
 import { connect } from "react-redux";
+import { selectUserById } from "../features/users/users.selector";
 
 function PostCard({
   id,
@@ -25,7 +26,7 @@ function PostCard({
 }
 
 const mapStateToProps = (state, { userId }) => ({
-  author: state.users.users.find(user => user.id === userId),
+  author: selectUserById(state, { id: userId }),
   isFetchingUser: state.users.isFetching
 });
 

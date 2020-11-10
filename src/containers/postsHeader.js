@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Heading } from "@chakra-ui/core";
+import { selectPostCountByUserId } from "../features/posts/posts.selector";
 
 function PostsHeader({ postCount, isFetching }) {
   return (
@@ -12,12 +13,12 @@ function PostsHeader({ postCount, isFetching }) {
 }
 
 PostsHeader.propTypes = {
-  id: PropTypes.number.isRequired
+  userId: PropTypes.number.isRequired
 };
 
-const mapStateToProps = (state, { id }) => ({
+const mapStateToProps = (state, { userId }) => ({
   isFetching: state.posts.isFetching,
-  postCount: state.posts.posts.filter(post => post.userId === id).length
+  postCount: selectPostCountByUserId(state, { userId })
 });
 
 export default connect(mapStateToProps)(PostsHeader);

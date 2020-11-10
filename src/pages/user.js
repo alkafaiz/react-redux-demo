@@ -12,7 +12,7 @@ export default function UserPage({ history, match }) {
       <Breadcrumb pathname={history.location.pathname} />
       <Divider my={8} />
       <Profile id={parseInt(match.params.userId)} />
-      <PostsHeader id={parseInt(match.params.userId)} />
+      <PostsHeader userId={parseInt(match.params.userId)} />
       <PostCards userId={parseInt(match.params.userId)} />
     </Layout>
   );
