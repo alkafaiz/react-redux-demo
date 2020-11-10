@@ -1,4 +1,4 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk, createAction } from "@reduxjs/toolkit";
 import { POSTS } from "../features";
 
 const fetchPosts = createAsyncThunk(`${POSTS}/fetchPosts`, async () => {
@@ -9,4 +9,17 @@ const fetchPosts = createAsyncThunk(`${POSTS}/fetchPosts`, async () => {
   return response;
 });
 
-export { fetchPosts };
+const fetchComments = createAsyncThunk(`${POSTS}/fetchComments`, async () => {
+  const response = await fetch(
+    "https://jsonplaceholder.typicode.com/comments",
+    {
+      method: "GET"
+    }
+  ).then(res => res.json());
+
+  return response;
+});
+
+const fetchInitialData = createAction(`${POSTS}/fetchInitialData`);
+
+export { fetchPosts, fetchInitialData, fetchComments };

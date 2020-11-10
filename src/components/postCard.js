@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/core";
 import PropTypes from "prop-types";
 
-function PostCard({ body, title }) {
+function PostCard({ authorName, body, title, commentCount }) {
   return (
     <PseudoBox
       maxW="sm"
@@ -24,7 +24,7 @@ function PostCard({ body, title }) {
     >
       <Box p="6">
         <Flex alignItems="center" mb={3}>
-          <Avatar size="sm" name="Ryan Florence" />
+          <Avatar size="sm" name={authorName} />
           <Box
             color="gray.500"
             fontWeight="semibold"
@@ -32,7 +32,7 @@ function PostCard({ body, title }) {
             fontSize="sm"
             ml="2"
           >
-            <Link>Ryan Florence</Link> &bull; 2 <Icon name="chat" />
+            <Link>{authorName}</Link> &bull; {commentCount} <Icon name="chat" />
           </Box>
         </Flex>
 
@@ -61,8 +61,10 @@ function PostCard({ body, title }) {
 }
 
 PostCard.propTypes = {
+  authorName: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  body: PropTypes.string.isRequired
+  body: PropTypes.string.isRequired,
+  commentCount: PropTypes.number.isRequired
 };
 
 export default PostCard;

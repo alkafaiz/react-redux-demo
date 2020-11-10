@@ -1,7 +1,7 @@
 import React from "react";
 import PostCards from "../containers/postCards";
 import Layout from "../components/layout";
-import { Heading, Dividerx } from "@chakra-ui/core";
+import { Heading, Divider } from "@chakra-ui/core";
 
 document.title = "Home";
 export default function Index() {
