@@ -2,9 +2,8 @@ import React from "react";
 import PostCard from "./postCard";
 import { Flex, CircularProgress } from "@chakra-ui/core";
 import { connect } from "react-redux";
-import { fetchInitialData } from "../features/posts/posts.actions";
 
-function PostCards({ isFetching, posts, fetchInitialData }) {
+function PostCards({ isFetching, posts }) {
   if (isFetching) return <CircularProgress isIndeterminate></CircularProgress>;
   return (
     <Flex wrap="wrap">
@@ -27,8 +26,4 @@ const mapStateToProps = state => ({
   posts: state.posts.posts
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchInitialData: () => dispatch(fetchInitialData())
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(PostCards);
+export default connect(mapStateToProps)(PostCards);

@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import PostCards from "../containers/postCards";
 import Layout from "../containers/layout";
-import { Heading, Divider } from "@chakra-ui/core";
+import { Heading, Divider, Flex, Link } from "@chakra-ui/core";
+import { Link as RouterLink } from "react-router-dom";
 
 export default function Index() {
   useEffect(() => {
@@ -9,7 +10,12 @@ export default function Index() {
   }, []);
   return (
     <Layout>
-      <Heading>All Posts</Heading>
+      <Flex justifyContent="space-between" align="center">
+        <Heading>All Posts</Heading>
+        <Link as={RouterLink} to="/users">
+          Users
+        </Link>
+      </Flex>
       <Divider my={8} />
       <PostCards />
     </Layout>
