@@ -32,4 +32,6 @@ export const processFetchPosts = ({ dispatch }) => next => async action => {
   }
 };
 
-export default [processFetchInitialData, processFetchPosts];
+const postsMiddleware = [processFetchInitialData, processFetchPosts];
+
+export default postsMiddleware;

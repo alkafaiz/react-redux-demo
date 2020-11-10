@@ -1,14 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import PostCard from "./postCard";
 import { Flex, CircularProgress } from "@chakra-ui/core";
 import { connect } from "react-redux";
 import { fetchInitialData } from "../features/posts/posts.actions";
 
 function PostCards({ isFetching, posts, fetchInitialData }) {
-  useEffect(() => {
-    fetchInitialData();
-  }, [fetchInitialData]);
-
   if (isFetching) return <CircularProgress isIndeterminate></CircularProgress>;
   return (
     <Flex wrap="wrap">

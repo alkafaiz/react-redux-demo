@@ -8,9 +8,10 @@ import {
   Icon,
   PseudoBox
 } from "@chakra-ui/core";
+import { Link as RouterLink } from "react-router-dom";
 import PropTypes from "prop-types";
 
-function PostCard({ authorName, body, title, commentCount }) {
+function PostCard({ id, authorName, body, title, commentCount }) {
   return (
     <PseudoBox
       maxW="sm"
@@ -48,6 +49,8 @@ function PostCard({ authorName, body, title, commentCount }) {
           }}
         />
         <Link
+          as={RouterLink}
+          to={`/posts/${id}`}
           color="gray.500"
           fontWeight="semibold"
           letterSpacing="wide"

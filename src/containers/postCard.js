@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 function PostCard({ id, title, body, author, isFetchingUser, commentCount }) {
   return (
     <PostCardComponent
+      id={id}
       authorName={isFetchingUser ? "loading" : author.name}
       body={body}
       title={title}

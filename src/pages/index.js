@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PostCards from "../containers/postCards";
-import Layout from "../components/layout";
+import Layout from "../containers/layout";
 import { Heading, Divider } from "@chakra-ui/core";
 
-document.title = "Home";
 export default function Index() {
+  useEffect(() => {
+    document.title = "Home";
+  }, []);
   return (
     <Layout>
       <Heading>All Posts</Heading>
