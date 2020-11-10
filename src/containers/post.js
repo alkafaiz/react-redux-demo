@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
 import Article from "../components/article";
 import Comment from "../components/comment";
@@ -14,6 +15,7 @@ function Post({ post, isFetching }) {
   }, [post]);
 
   if (isFetching) return "Loading";
+  if (!post) return <Redirect to="/" />;
   return (
     <div>
       <AuthorCard id={post.userId} />

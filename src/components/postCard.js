@@ -11,7 +11,7 @@ import {
 import { Link as RouterLink } from "react-router-dom";
 import PropTypes from "prop-types";
 
-function PostCard({ id, authorName, body, title, commentCount }) {
+function PostCard({ id, authorId, authorName, body, title, commentCount }) {
   return (
     <PseudoBox
       maxW="sm"
@@ -33,7 +33,10 @@ function PostCard({ id, authorName, body, title, commentCount }) {
             fontSize="sm"
             ml="2"
           >
-            <Link>{authorName}</Link> &bull; {commentCount} <Icon name="chat" />
+            <Link as={RouterLink} to={`/users/${authorId}`}>
+              {authorName}
+            </Link>{" "}
+            &bull; {commentCount} <Icon name="chat" />
           </Box>
         </Flex>
 

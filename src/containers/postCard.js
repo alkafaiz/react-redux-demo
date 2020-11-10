@@ -3,11 +3,20 @@ import PropTypes from "prop-types";
 import PostCardComponent from "../components/postCard";
 import { connect } from "react-redux";
 
-function PostCard({ id, title, body, author, isFetchingUser, commentCount }) {
+function PostCard({
+  id,
+  userId,
+  title,
+  body,
+  author,
+  isFetchingUser,
+  commentCount
+}) {
   return (
     <PostCardComponent
       id={id}
       authorName={isFetchingUser ? "loading" : author.name}
+      authorId={userId}
       body={body}
       title={title}
       commentCount={commentCount}
