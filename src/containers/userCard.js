@@ -2,7 +2,8 @@ import React from "react";
 import UserCardComponent from "../components/userCard";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { selectPostCountByUserId } from "../features/posts/posts.selector";
+// import { selectPostCountByUserId } from "../features/posts/posts.selector";
+import { selectPostCountByUserId } from "../redux/selectors/posts.selector";
 
 function UserCard({ id, name, email, city, website, postCount }) {
   return (

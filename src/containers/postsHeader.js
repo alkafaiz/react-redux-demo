@@ -2,7 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Heading } from "@chakra-ui/core";
-import { selectPostCountByUserId } from "../features/posts/posts.selector";
+// import { selectPostCountByUserId } from "../features/posts/posts.selector";
+import {
+  selectPostCountByUserId,
+  isFetchingPosts
+} from "../redux/selectors/posts.selector";
 
 function PostsHeader({ postCount, isFetching }) {
   return (
@@ -17,7 +21,7 @@ PostsHeader.propTypes = {
 };
 
 const mapStateToProps = (state, { userId }) => ({
-  isFetching: state.posts.isFetching,
+  isFetching: isFetchingPosts(state),
   postCount: selectPostCountByUserId(state, { userId })
 });
 

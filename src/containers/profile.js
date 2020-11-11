@@ -3,7 +3,11 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import ProfileComponent from "../components/profile";
 import { Redirect } from "react-router-dom";
-import { selectUserById } from "../features/users/users.selector";
+// import { selectUserById } from "../features/users/users.selector";
+import {
+  selectUserById,
+  isFetchingUsers
+} from "../redux/selectors/users.selector";
 
 function Profile({ id, isFetching, user }) {
   useEffect(() => {
@@ -31,7 +35,7 @@ Profile.propTypes = {
 
 const mapStateToProps = (state, { id }) => ({
   user: selectUserById(state, { id }),
-  isFetching: state.users.isFetching
+  isFetching: isFetchingUsers(state)
 });
 
 export default connect(mapStateToProps)(Profile);

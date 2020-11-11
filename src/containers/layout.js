@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
 import LayoutComponent from "../components/layout";
-import { fetchInitialData } from "../features/posts/posts.actions";
+// import { fetchInitialData } from "../features/posts/posts.actions";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { fetchInitialData } from "../redux/actions/posts.action";
+import { dataHasLoaded } from "../redux/selectors/posts.selector";
 
 function Layout({ children, fetchInitialData, hasLoaded, maxWidth }) {
   useEffect(() => {
@@ -15,7 +17,7 @@ function Layout({ children, fetchInitialData, hasLoaded, maxWidth }) {
 }
 
 const mapStateToProps = state => ({
-  hasLoaded: state.posts.hasLoaded
+  hasLoaded: dataHasLoaded(state)
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -2,8 +2,10 @@ import React from "react";
 import AuthorCardComponent from "../components/authorCard";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { selectPostCountByUserId } from "../features/posts/posts.selector";
-import { selectUserById } from "../features/users/users.selector";
+// import { selectPostCountByUserId } from "../features/posts/posts.selector";
+// import { selectUserById } from "../features/users/users.selector";
+import { selectPostCountByUserId } from "../redux/selectors/posts.selector";
+import { selectUserById } from "../redux/selectors/users.selector";
 
 function AuthorCard({ user, postCount }) {
   return (

@@ -2,7 +2,11 @@ import React from "react";
 import UserCard from "./userCard";
 import { Flex, CircularProgress } from "@chakra-ui/core";
 import { connect } from "react-redux";
-import { selectUsers } from "../features/users/users.selector";
+// import { selectUsers } from "../features/users/users.selector";
+import {
+  selectUsers,
+  isFetchingUsers
+} from "../redux/selectors/users.selector";
 
 function UserCards({ isFetching, users }) {
   if (isFetching) return <CircularProgress isIndeterminate></CircularProgress>;
@@ -23,7 +27,7 @@ function UserCards({ isFetching, users }) {
 }
 
 const mapStateToProps = state => ({
-  isFetching: state.users.isFetching,
+  isFetching: isFetchingUsers(state),
   users: selectUsers(state)
 });
 

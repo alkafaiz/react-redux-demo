@@ -6,17 +6,23 @@ import Article from "../components/article";
 import Comment from "../components/comment";
 import { Heading, Stack } from "@chakra-ui/core";
 import AuthorCard from "../containers/authorCard";
-import { selectPostById } from "../features/posts/posts.selector";
+// import { selectPostById } from "../features/posts/posts.selector";
+import {
+  selectPostById,
+  isFetchingPosts,
+  dataHasLoaded
+} from "../redux/selectors/posts.selector";
 
-function Post({ post, isFetching }) {
+function Post({ post, isFetching, hasLoaded }) {
   useEffect(() => {
     if (post) {
       document.title = post.title;
     }
   }, [post]);
 
-  if (isFetching) return "Loading";
+  if (isFetching || !hasLoaded) return "Loading";
   if (!post) return <Redirect to="/" />;
+
   return (
     <div>
       <AuthorCard id={post.userId} />
@@ -44,7 +50,8 @@ Post.propTypes = {
 
 const mapStateToProps = (state, { id }) => ({
   post: selectPostById(state, { id }),
-  isFetching: state.posts.isFetching
+  hasLoaded: dataHasLoaded(state),
+  isFetching: isFetchingPosts(state)
 });
 
 export default connect(mapStateToProps)(Post);
