@@ -3,10 +3,6 @@ import PostCard from "./postCard";
 import { Flex, CircularProgress } from "@chakra-ui/core";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-// import {
-//   selectPostsByUserId,
-//   selectPosts
-// } from "../features/posts/posts.selector";
 import {
   selectPostsByUserId,
   selectPosts,

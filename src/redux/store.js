@@ -1,14 +1,3 @@
-// import { configureStore } from "@reduxjs/toolkit";
-// import reducer from "./reducer";
-// import middleware from "./middleware";
-
-// const store = configureStore({
-//   reducer,
-//   middleware
-// });
-
-// export default store;
-
 import { rootReducer } from "./reducer";
 import { rootMiddleware } from "./middleware";
 import { compose, applyMiddleware, createStore } from "redux";

@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Heading } from "@chakra-ui/core";
-// import { selectPostCountByUserId } from "../features/posts/posts.selector";
 import {
   selectPostCountByUserId,
   isFetchingPosts

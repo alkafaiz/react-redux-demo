@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import LayoutComponent from "../components/layout";
-// import { fetchInitialData } from "../features/posts/posts.actions";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { fetchInitialData } from "../redux/actions/posts.action";

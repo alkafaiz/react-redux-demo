@@ -6,7 +6,6 @@ import Article from "../components/article";
 import Comment from "../components/comment";
 import { Heading, Stack } from "@chakra-ui/core";
 import AuthorCard from "../containers/authorCard";
-// import { selectPostById } from "../features/posts/posts.selector";
 import {
   selectPostById,
   isFetchingPosts,

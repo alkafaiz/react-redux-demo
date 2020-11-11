@@ -2,7 +2,6 @@ import React from "react";
 import UserCard from "./userCard";
 import { Flex, CircularProgress } from "@chakra-ui/core";
 import { connect } from "react-redux";
-// import { selectUsers } from "../features/users/users.selector";
 import {
   selectUsers,
   isFetchingUsers
