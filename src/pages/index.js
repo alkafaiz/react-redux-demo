@@ -12,6 +12,12 @@ export default function Index() {
     <Layout>
       <Flex justifyContent="space-between" align="center">
         <Heading>All Posts</Heading>
+        <Link as={RouterLink} to="/">
+          Posts
+        </Link>
+        <Link as={RouterLink} to="/albums">
+          Albums
+        </Link>
         <Link as={RouterLink} to="/users">
           Users
         </Link>

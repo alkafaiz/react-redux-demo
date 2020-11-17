@@ -2,9 +2,7 @@ import { fetchInitialData, fetchPosts, fetchComments } from "./posts.actions";
 import { fetchUsers } from "../users/users.actions";
 import { unwrapResult } from "@reduxjs/toolkit";
 
-export const processFetchInitialData = ({
-  dispatch
-}) => next => async action => {
+export const processFetchInitialData = ({ dispatch }) => next => async action => {
   next(action);
 
   const { type } = action;

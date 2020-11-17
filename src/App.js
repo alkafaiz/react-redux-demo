@@ -8,6 +8,7 @@ import withTheme from "./styles/withTheme";
 import { compose } from "redux";
 import withRedux from "./redux/withRedux";
 import UserPage from "./pages/user";
+import AlbumsPage from "./pages/albums";
 
 const history = createBrowserHistory();
 
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/posts/:postId" component={PostPage} />
         <Route exact path="/users" component={UsersPage} />
         <Route path="/users/:userId" component={UserPage} />
+        <Route path="/albums" component={AlbumsPage} />
       </Switch>
     </Router>
   );
