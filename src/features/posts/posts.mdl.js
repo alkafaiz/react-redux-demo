@@ -2,18 +2,12 @@ import { fetchInitialData, fetchPosts, fetchComments } from "./posts.actions";
 import { fetchUsers } from "../users/users.actions";
 import { unwrapResult } from "@reduxjs/toolkit";
 
-<<<<<<< HEAD
 export const processFetchInitialData = ({ dispatch }) => next => async action => {
-=======
-export const processFetchInitialData = ({
-  dispatch
-}) => next => async action => {
   /**
    * ! next function continues the action
    * it will continue whatever action is dispatched
    * example: getLastPost action is dispatched, then it will just continue the action
    */
->>>>>>> ea4743dd2d98d573182dac6c5e5f495ab7b1b029
   next(action);
 
   const { type } = action;
