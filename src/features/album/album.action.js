@@ -1,15 +1,13 @@
 import { createAsyncThunk, createAction } from "@reduxjs/toolkit";
 import { ALBUM } from "../features";
+import axios from "axios";
 
 const fetchAlbum = createAsyncThunk(`${ALBUM}/fetchAlbum`, async () => {
-    console.log('fetch api done');
-    const response = await fetch(
-        "https://jsonplaceholder.typicode.com/albums",
-        {
-            method: "GET"
-        }
-    ).then(res => res.json());
-    return response;
+  const response = await axios.get(
+    "https://jsonplaceholder.typicode.com/albums"
+  );
+
+  return response.data;
 });
 
 const loadAlbumPage = createAction(`${ALBUM}/loadAlbumPage`);
