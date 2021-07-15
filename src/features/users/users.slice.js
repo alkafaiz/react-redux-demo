@@ -18,6 +18,7 @@ const usersSlice = createSlice({
       state.users = action.payload;
       state.hasLoaded = true;
       state.isFetching = false;
+      state.error = "";
     },
     [fetchUsers.pending]: (state, action) => {
       state.isFetching = true;

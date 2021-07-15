@@ -9,6 +9,7 @@ import { compose } from "redux";
 import withRedux from "./redux/withRedux";
 import UserPage from "./pages/user";
 import AlbumsPage from "./pages/albums";
+import ErrorToast from "./containers/errorToast";
 
 const history = createBrowserHistory();
 
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="/users/:userId" component={UserPage} />
         <Route path="/albums" component={AlbumsPage} />
       </Switch>
+      <ErrorToast />
     </Router>
   );
 };

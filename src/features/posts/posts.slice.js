@@ -18,6 +18,7 @@ const postsSlice = createSlice({
       state.posts = action.payload;
       state.hasLoaded = true;
       state.isFetching = false;
+      state.error = "";
     },
     [fetchPosts.pending]: (state, action) => {
       state.isFetching = true;

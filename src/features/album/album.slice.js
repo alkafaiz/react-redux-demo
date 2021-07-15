@@ -12,10 +12,6 @@ const albumSlice = createSlice({
   name: ALBUM,
   initialState,
   reducers: {},
-  /**
-   * missing the 's'
-   * ! extraReducer => extraReducers
-   */
   extraReducers: {
     [fetchAlbum.pending]: (state, action) => {
       state.isFetching = true;
@@ -23,6 +19,7 @@ const albumSlice = createSlice({
     [fetchAlbum.fulfilled]: (state, action) => {
       state.albums = action.payload;
       state.isFetching = false;
+      state.error = "";
     },
     [fetchAlbum.rejected]: (state, action) => {
       state.isFetching = false;
